@@ -595,6 +595,10 @@ a.hover-reverse:active, a.hover-reverse:focus, a.hover-reverse:hover {
   line-height: 30px
 }
 
+.probootstrap-cta {
+  text-align: center;
+}
+
 .probootstrap-cta :last-child, .probootstrap-panel .panel .panel-body :last-child {
   margin-bottom: 0
 }
@@ -976,7 +980,8 @@ figure:focus figcaption, figure:hover figcaption {
 
 .slides-text {
   z-index: 99;
-  padding-top: 350px;
+  padding-top: 10em;
+  padding-bottom: 2em;
   max-width: 600px;
   margin: 0 auto
 }
@@ -1651,6 +1656,10 @@ figure:focus figcaption, figure:hover figcaption {
 
 .probootstrap-social li:first-child>a {
   padding-left: 0
+}
+
+.center-align {
+  text-align: center;
 }
 
 .service {
