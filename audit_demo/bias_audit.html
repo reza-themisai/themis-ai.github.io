@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scribbler Documentation - a code documentation page template for codrops</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="scribbler-global.css">
+    <link rel="stylesheet" href="scribbler-doc.css">
+    <link rel="author" href="humans.txt">
+	<script src="js/class_cluster_options.js"></script>
+	<script src="js/feature_cluster_options.js"></script>
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">Bias Audit Demo</h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+  <div class="wrapper">
+    <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Class Distribuition</li>
+          <li class="js-btn">Feature Clusters</li>
+          <li class="js-btn">Features of Class</li>
+        </ul>
+    </aside>
+    <article class="doc__content">
+      <section class="js-section">
+		<h2 class="section__title">Class Distribuition</h2>
+        <p>This plot can help you gain a better understanding about the distribuition of your data. Such as which classes are under/over-represented.</p>
+        <h3 class="section__title">Label Distribuition</h3>
+	    <label for="select">Select:</label>
+       	  <select name="Label" id="select">
+		    <option value="Value">Value</option>
+       	  </select>
+        <div>    
+            <img src="img/label_dist.jpg" alt="" width="70%"/>
+        </div>	
+      </section>
+      <section class="js-section">
+        <h2 class="section__title">Feature Clusters</h2>
+        <p>These plots cluster data points based on their extracted feature. </p>
+        <table id="customers">
+          <tr>
+            <th align="center">Colored by feature</th>
+            <th align="center">Colored by label</th>
+          </tr>
+          <tr>
+            <th><img src="img/cluster_all_1.jpg" alt="" width="70%"/></th>
+            <th><img src="img/cluster_all_2.jpg" alt="" width="70%"/></th>
+          </tr>			  
+        </table>
+	    <h3 class="section__title">Isolated Visualization Per Class&nbsp; &nbsp;&nbsp;</h3>
+	    <form name="feature_cluster_form">
+		  <label for="select">Select:</label>
+       	  <select name="classes" onChange="feature_cluster()" id="select_1">
+			<option value="class_0">0</option>
+		    <option value="class_1">1</option>
+		    <option value="class_2">2</option>
+       	  </select>
+		</form>
+		  <div>    
+            <img name="feature_cluster_name" src="img/feature_cluster_0.jpg" alt="" width="70%"/>
+          </div>	
+        <hr />
+      </section>
+      <section class="js-section">
+        <h3 class="section__title">Features Of Class</h3>
+        <p></p>
+		<form name="class_cluster_form">
+		  <label for="select">Select:</label>
+       	  <select name="classes" onChange="class_cluster()" id="select_2">
+		    <option value="class_0">0</option>
+		    <option value="class_1">1</option>
+		    <option value="class_2">2</option>
+       	  </select>
+		</form>
+		  <div>    
+            <img name="class_cluster_name" src="img/class_cluster_0.jpg" alt="" width="70%"/>
+          </div>
+        <hr />
+      </section>
+    </article>
+    </div>
+
+    <footer class="footer"> <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light"></a>.</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>
