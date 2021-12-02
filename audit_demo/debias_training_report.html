@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="scribbler-doc.css">
     <link rel="author" href="humans.txt">
 	<script src="js/debias_training_report.js"></script>
-	<script src="js/label_metrics_options.js"></script>
-	<script src="js/class_cluster_options.js"></script>
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
   </head>
 	
   <body>
@@ -37,7 +37,11 @@
 		<h2 class="section__title">Overall Metrics</h2>
         <p>The following plots depict the overall performance metrics of the model in the default state (no debiasing) and after utilizing the debiased training module. You can utilize these plots to calculate the financial benefit of debiased training.</p>
         <p>Each metric is calculated as follows:&nbsp;&nbsp;</p>
-        <p><strong>Accuracy:&nbsp;</strong><math><box>correct prediction/all predictions</box></math></p>
+        <p><span class="math display"> \[ Accuracy\ =\ \frac{correct\ prediction}{all\ predictions}\]</span></p>
+		<p><span class="math display"> \[ recall\ =\ \frac{True\ Positive}{True\ Positive\ +\ False Negative}\]</span></p>
+		<p><span class="math display"> \[ precision\ =\ \frac{True\ Positive}{True\ Positive\ +\ False Positive}\]</span></p>
+	    <p><span class="math display"> \[ f1\ =\ 2\ .\ \frac{precision\ .\ recall}{precision\ +\ recall}\]</span></p>
+
 		<form name="overall_metrics_form">
 	    <label for="select">Options:</label>
    	    <select name="metric" onChange="overall_metrics()" id="select_1">
@@ -51,13 +55,13 @@
    	    </select>
 		</form>
         <div>    
-			<object name="overall_metrics_name" data="demo_material/Comparison_of_model_accuracies_for_accuracy.html" height="600" width="650"></object>
+			<object name="overall_metrics_name" data="demo_material/Comparison_of_model_accuracies_for_accuracy.html" height="650" width="650"></object>
         </div>
 		<hr />
       </section>
       <section class="js-section">
         <h2 class="section__title">Label and Feature Metrics</h2>
-        <p>These plots cluster data points based on their extracted feature. </p>
+        <p>The following plots compare the performance of each label before and after debiasing was enforced during training. As you can observe debias training was able to improve the performance of the under-represented classes.</p>
 		<form name="label_metrics_form">
 		  <label for="select">Select:</label>
        	  <select name="metric" onChange="label_metrics()" id="select_label_metrics">
@@ -74,39 +78,14 @@
        	  </select>
 		</form>
 		<div>    
-			  <object  name="label_metrics_name" data="demo_material/model_comparison_metrics_label_0.html" height="600" width="650"></object>
+			  <object  name="label_metrics_name" data="demo_material/model_comparison_metrics_label_0.html" height="400" width="1000"></object>
         </div>		
         <hr />
-      </section>
-<!--
-	  <section class="js-section">
-        <h2 class="section__title">Features Within Class</h2>
-        <p>This plot depicts the features extracted within each class. This visualization helps you understand the distribution of your data samples under each class. Additionally, the color of each data sample represents the difficulty of that data point for your model. For instance, you can see how many different digits of 1 you have, how they are distributed, and which ones are more difficult for the model to classify. You can utilize this visualization to remove noisy data samples. Moreover, you can identify the under-represented areas to gather more data samples from.</p>
-		<form name="class_cluster_form">
-		  <label for="select">Select:</label>
-       	  <select name="classes" onChange="class_cluster()" id="select_2">
-			<option value="class_0">0</option>
-		    <option value="class_1">1</option>
-		    <option value="class_2">2</option>
-			<option value="class_3">3</option>
-			<option value="class_4">4</option>
-			<option value="class_5">5</option>
-			<option value="class_6">6</option>
-			<option value="class_7">7</option>
-			<option value="class_8">8</option>
-			<option value="class_9">9</option>	
-       	  </select>
-		</form>
-		  <div>    
-			<object name="class_cluster_name" data="demo_material/entire_scatterplot_by_cluster.html" height="600" width="650"></object>
-          </div>
-        <hr />
--->
       </section>
 		
       <section class="js-section">
         <h3 class="section__title">Advanced Metrics</h3>
-        <p></p>
+        <p>ML Engineers and Data scientists may benefit from more advanced plots that include more information regarding the loss function values during training, validating, and testing.</p>
 		<form name="advanced_metrics_form">
 		  <label for="select">Select:</label>
        	  <select name="metric" onChange="advanced_metrics()" id="select_2">
@@ -114,7 +93,7 @@
        	  </select>
 		</form>
 		  <div>    
-            <object name="advanced_metrics_name" data="demo_material/Training_and_Accuracy_Metrics_for_uniform_on_histories.html" height="600" width="800"></object>
+            <object name="advanced_metrics_name" data="demo_material/Training_and_Accuracy_Metrics_for_uniform_on_histories.html" height="700" width="1000"></object>
           </div>
         <hr />
       </section>
