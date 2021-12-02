@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Scribbler Documentation - a code documentation page template for codrops</title>
+    <title>Bias Audit Demo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="scribbler-global.css">
@@ -12,7 +12,6 @@
     <link rel="author" href="humans.txt">
 	<script src="js/class_cluster_options.js"></script>
 	<script src="js/feature_cluster_options.js"></script>
-	<script src="js/w3.js"></script> 
   </head>
   <body>
     <div class="doc__bg"></div>
@@ -34,20 +33,26 @@
     <article class="doc__content">
       <section class="js-section">
 		<h2 class="section__title">Class Distribuition</h2>
-        <p>This plot can help you gain a better understanding about the distribuition of your data. Such as which classes are under/over-represented.</p>
+        <p>This plot can help you gain a better understanding of the distribution of your data. Having imbalanced data can impact your model negatively. For instance, if certain classes are much less populated than others it can cause your AI model to have difficulty classifying such classes resulting in loss of accuracy. Utilize the plot below to identify the under/over-represented classes. In this instance, you can observe there are far fewer even digit data points than odd digits.</p>
         <h3 class="section__title">Label Distribuition</h3>
 	    <label for="select">Select:</label>
        	  <select name="Label" id="select">
-		    <option value="Value">Value</option>
+		    <option value="Value">Label</option>
        	  </select>
         <div>    
 			<object data="demo_material/data_histogram_by_feature_value.html" height="600" width="650"></object>
         </div>	
+		<h3>Improvement Suggestions: </h3>
+		<ul>
+			<li>Gather more samples of even digits.</li>
+			<li>Use debiased training to ensure fairness of your model on all digits. (i.e. your model is not losing accuracy on even digits)</li>
+		</ul>
 		<hr />
       </section>
       <section class="js-section">
         <h2 class="section__title">Feature Clusters</h2>
-        <p>These plots cluster data points based on their extracted feature. </p>
+        <p>These plots cluster data points based on their features. For instance, one common feature in these clusters is the count of curves and their shapes, we can observe that the model clusters 1, 7, and 9s that look similar to each other together and 3, 8, and some 5s in another cluster. Additionally, utilize the visualizations below to identify which data points are challenging for your AI  model. Additionally, this visualization helps you gain a better understanding and identify the latent features of your data. These features have the most impact on your model's prediction.</p>
+		<p>You can compare the <em><strong>color by feature</strong></em> and <em><strong>color by label </strong> </em> plots to gain a better understanding of the difficult areas of your data.</p>
         <div class="row">
 		  <div class="column">
 			  <h3>Colored by feature</h3>
@@ -59,7 +64,8 @@
 		  </div>
 		</div>
 
-	    <h3 class="section__title">Isolated Visualization Per Class&nbsp; &nbsp;&nbsp;</h3>
+	    <h3 class="section__title">Isolated Visualization Per Class</h3>
+		<p>You can utilize these isolated plots to identify the challenging data samples from each class. The data samples are color-coded based on their difficulty for the model. Hover over the points to identify whether a data is noisy (i.e. should be removed) or under-sampled (i.e. need to gather more similar data).</p>
 	    <form name="feature_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="feature_cluster()" id="select_1">
@@ -82,8 +88,8 @@
         <hr />
       </section>
       <section class="js-section">
-        <h3 class="section__title">Features Of Class</h3>
-        <p></p>
+        <h2 class="section__title">Features Within Class</h2>
+        <p>This plot depicts the features extracted within each class. This visualization helps you understand the distribution of your data samples under each class. Additionally, the color of each data sample represents the difficulty of that data point for your model. For instance, you can see how many different digits of 1 you have, how they are distributed, and which ones are more difficult for the model to classify. You can utilize this visualization to remove noisy data samples. Moreover, you can identify the under-represented areas to gather more data samples from.</p>
 		<form name="class_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="class_cluster()" id="select_2">
@@ -111,7 +117,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="scribbler.js"></script>
-	<script>w3.includeHTML();</script>
-
+	  
   </body>
 </html>

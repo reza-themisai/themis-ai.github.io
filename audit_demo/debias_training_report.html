@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Scribbler Documentation - a code documentation page template for codrops</title>
+    <title>Debiased Training Report</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="scribbler-global.css">
     <link rel="stylesheet" href="scribbler-doc.css">
     <link rel="author" href="humans.txt">
-	<script src="js/overall_metrics_options.js"></script>
+	<script src="js/debias_training_report.js"></script>
+	<script src="js/label_metrics_options.js"></script>
+	<script src="js/class_cluster_options.js"></script>
   </head>
 	
   <body>
@@ -33,11 +35,9 @@
     <article class="doc__content">
       <section class="js-section">
 		<h2 class="section__title">Overall Metrics</h2>
-        <p>The following plots provide the overall performance metrics of the model in the default state (no debiasing) and after utilizing debiased training module. You can utilize these plots to calculate the financial benefit of  debiased training. &nbsp;</p>
+        <p>The following plots depict the overall performance metrics of the model in the default state (no debiasing) and after utilizing the debiased training module. You can utilize these plots to calculate the financial benefit of debiased training.</p>
         <p>Each metric is calculated as follows:&nbsp;&nbsp;</p>
-        <p><strong>Accuracy:&nbsp;</strong><math><box>correct prediction/
-        <over>all predictions</box></math></p>
-		
+        <p><strong>Accuracy:&nbsp;</strong><math><box>correct prediction/all predictions</box></math></p>
 		<form name="overall_metrics_form">
 	    <label for="select">Options:</label>
    	    <select name="metric" onChange="overall_metrics()" id="select_1">
@@ -58,24 +58,63 @@
       <section class="js-section">
         <h2 class="section__title">Label and Feature Metrics</h2>
         <p>These plots cluster data points based on their extracted feature. </p>
-		  <div>    
-            <img src="img/label_accuracy.jpg" alt="" width="70%"/>
-          </div>	
+		<form name="label_metrics_form">
+		  <label for="select">Select:</label>
+       	  <select name="metric" onChange="label_metrics()" id="select_label_metrics">
+			<option value="class_0">0</option>
+		    <option value="class_1">1</option>
+		    <option value="class_2">2</option>
+			<option value="class_3">3</option>
+			<option value="class_4">4</option>
+			<option value="class_5">5</option>
+			<option value="class_6">6</option>
+			<option value="class_7">7</option>
+			<option value="class_8">8</option>
+			<option value="class_9">9</option>			
+       	  </select>
+		</form>
+		<div>    
+			  <object  name="label_metrics_name" data="demo_material/model_comparison_metrics_label_0.html" height="600" width="650"></object>
+        </div>		
         <hr />
       </section>
-      <section class="js-section">
-        <h3 class="section__title">Advanced Metrics</h3>
-        <p></p>
+<!--
+	  <section class="js-section">
+        <h2 class="section__title">Features Within Class</h2>
+        <p>This plot depicts the features extracted within each class. This visualization helps you understand the distribution of your data samples under each class. Additionally, the color of each data sample represents the difficulty of that data point for your model. For instance, you can see how many different digits of 1 you have, how they are distributed, and which ones are more difficult for the model to classify. You can utilize this visualization to remove noisy data samples. Moreover, you can identify the under-represented areas to gather more data samples from.</p>
 		<form name="class_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="class_cluster()" id="select_2">
-		    <option value="option_1">option 1</option>
-		    <option value="option_2">option 2</option>
-		    <option value="option_3">option 3</option>
+			<option value="class_0">0</option>
+		    <option value="class_1">1</option>
+		    <option value="class_2">2</option>
+			<option value="class_3">3</option>
+			<option value="class_4">4</option>
+			<option value="class_5">5</option>
+			<option value="class_6">6</option>
+			<option value="class_7">7</option>
+			<option value="class_8">8</option>
+			<option value="class_9">9</option>	
        	  </select>
 		</form>
 		  <div>    
-            <object name="overall_metrics_name" data="demo_material/Training_and_Accuracy_Metrics_for_uniform_on_histories.html" height="600" width="800"></object>
+			<object name="class_cluster_name" data="demo_material/entire_scatterplot_by_cluster.html" height="600" width="650"></object>
+          </div>
+        <hr />
+-->
+      </section>
+		
+      <section class="js-section">
+        <h3 class="section__title">Advanced Metrics</h3>
+        <p></p>
+		<form name="advanced_metrics_form">
+		  <label for="select">Select:</label>
+       	  <select name="metric" onChange="advanced_metrics()" id="select_2">
+		    <option value="train_loss">train loss</option>
+       	  </select>
+		</form>
+		  <div>    
+            <object name="advanced_metrics_name" data="demo_material/Training_and_Accuracy_Metrics_for_uniform_on_histories.html" height="600" width="800"></object>
           </div>
         <hr />
       </section>
