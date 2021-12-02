@@ -33,19 +33,27 @@
     <article class="doc__content">
       <section class="js-section">
 		<h2 class="section__title">Overall Metrics</h2>
-        <p>This plot can help you gain a better understanding about the distribuition of your data. Such as which classes are under/over-represented.</p>
-	    <form name="overall_metrics_form">
-		  <label for="select">Options:</label>
-       	  <select name="metric" onChange="overall_metrics()" id="select_1">
-		    <option value="accuracy">accuracy</option>
-			<option value="f1">f1</option>
-			<option value="recall">recall</option>
-			<option value="precision">precision</option>  
-       	  </select>
+        <p>The following plots provide the overall performance metrics of the model in the default state (no debiasing) and after utilizing debiased training module. You can utilize these plots to calculate the financial benefit of  debiased training. &nbsp;</p>
+        <p>Each metric is calculated as follows:&nbsp;&nbsp;</p>
+        <p><strong>Accuracy:&nbsp;</strong><math><box>correct prediction/
+        <over>all predictions</box></math></p>
+		
+		<form name="overall_metrics_form">
+	    <label for="select">Options:</label>
+   	    <select name="metric" onChange="overall_metrics()" id="select_1">
+	      <option value="accuracy">accuracy</option>
+		  <option value="f1">f1</option>
+		  <option value="recall">recall</option>
+		  <option value="precision">precision</option>  
+		  <option value="weighted_f1">weighted f1</option>  
+		  <option value="weighted_recall">weighted recall</option>  
+		  <option value="weighted_precision">weighted precision</option>  
+   	    </select>
 		</form>
         <div>    
-            <img name="overall_metrics_name" src="img/overall_accuracy.jpg" alt="" width="70%"/>
-        </div>	
+			<object name="overall_metrics_name" data="demo_material/Comparison_of_model_accuracies_for_accuracy.html" height="600" width="650"></object>
+        </div>
+		<hr />
       </section>
       <section class="js-section">
         <h2 class="section__title">Label and Feature Metrics</h2>
@@ -67,7 +75,7 @@
        	  </select>
 		</form>
 		  <div>    
-            <img name="" src="img/label_accuracy.jpg" alt="" width="70%"/>
+            <object name="overall_metrics_name" data="demo_material/Training_and_Accuracy_Metrics_for_uniform_on_histories.html" height="600" width="800"></object>
           </div>
         <hr />
       </section>

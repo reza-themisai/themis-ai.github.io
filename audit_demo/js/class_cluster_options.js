@@ -12,7 +12,7 @@ function class_cluster()
 if(document.images)
 	  {
 	  idx=document.class_cluster_form.classes.options[document.class_cluster_form.classes.selectedIndex].text.charAt(0)
-	  document.class_cluster_name.src = "img/class_cluster_"+idx+".jpg"
+	  document.class_cluster_name.data = "demo_material/scatterplot_re_projection_for_label_"+idx+".html"
 	  }
 }
 window.onerror = null;

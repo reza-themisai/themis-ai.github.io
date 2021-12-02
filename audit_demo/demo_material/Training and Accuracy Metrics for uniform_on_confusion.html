@@ -1,0 +1,86 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.1.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="0d01c655-ee5d-4023-b7ce-5cc4e0adabb2" data-root-id="3030"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="8660">
+          {"a1ab8393-dd3c-402c-93db-4ec8016957a4":{"defs":[],"roots":{"references":[{"attributes":{},"id":"2998","type":"DataRange1d"},{"attributes":{},"id":"8558","type":"AllLabels"},{"attributes":{"global_alpha":{"value":0.2},"h":{"value":1},"url":{"field":"url"},"w":{"value":1},"x":{"value":0},"y":{"value":1}},"id":"3026","type":"ImageURL"},{"attributes":{},"id":"3000","type":"LinearScale"},{"attributes":{},"id":"8560","type":"Selection"},{"attributes":{"coordinates":null,"data_source":{"id":"3023"},"glyph":{"id":"3024"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"3026"},"nonselection_glyph":{"id":"3025"},"view":{"id":"3028"}},"id":"3027","type":"GlyphRenderer"},{"attributes":{},"id":"3002","type":"LinearScale"},{"attributes":{"source":{"id":"3023"}},"id":"3028","type":"CDSView"},{"attributes":{"coordinates":null,"formatter":{"id":"8557"},"group":null,"major_label_policy":{"id":"8558"},"ticker":{"id":"3005"},"visible":false},"id":"3004","type":"LinearAxis"},{"attributes":{},"id":"8559","type":"UnionRenderers"},{"attributes":{},"id":"3005","type":"BasicTicker"},{"attributes":{"children":[{"id":"2992"},{"id":"3029"}]},"id":"3030","type":"Column"},{"attributes":{"axis":{"id":"3004"},"coordinates":null,"group":null,"ticker":null,"visible":false},"id":"3007","type":"Grid"},{"attributes":{"coordinates":null,"formatter":{"id":"8554"},"group":null,"major_label_policy":{"id":"8555"},"ticker":{"id":"3009"},"visible":false},"id":"3008","type":"LinearAxis"},{"attributes":{},"id":"3009","type":"BasicTicker"},{"attributes":{"axis":{"id":"3008"},"coordinates":null,"dimension":1,"group":null,"ticker":null,"visible":false},"id":"3011","type":"Grid"},{"attributes":{"global_alpha":{"value":0.1},"h":{"value":1},"url":{"field":"url"},"w":{"value":1},"x":{"value":0},"y":{"value":1}},"id":"3025","type":"ImageURL"},{"attributes":{},"id":"8554","type":"BasicTickFormatter"},{"attributes":{"data":{"url":["/Users/jacobphillips/sandbox/professional/themis-ml/themis/logs/bias_audit_imbalanced_mnist/12_01_2021/16_20_31/uniform_primary_model/confusion_heatmap.png"]},"selected":{"id":"8560"},"selection_policy":{"id":"8559"}},"id":"3023","type":"ColumnDataSource"},{"attributes":{},"id":"8557","type":"BasicTickFormatter"},{"attributes":{},"id":"3012","type":"PanTool"},{"attributes":{},"id":"3013","type":"WheelZoomTool"},{"attributes":{},"id":"3014","type":"ResetTool"},{"attributes":{"style":{"color":"black","font-size":"200%"},"text":"&lt;span&gt;&lt;b&gt;Other uniform Model Figures&lt;/b&gt;&lt;/span&gt;"},"id":"2992","type":"Div"},{"attributes":{},"id":"3015","type":"ZoomInTool"},{"attributes":{"children":[{"id":"2993"}]},"id":"3029","type":"Row"},{"attributes":{"background_fill_color":null,"below":[{"id":"3004"}],"border_fill_color":null,"center":[{"id":"3007"},{"id":"3011"}],"left":[{"id":"3008"}],"outline_line_color":null,"renderers":[{"id":"3027"}],"title":{"id":"2994"},"toolbar":{"id":"3017"},"x_range":{"id":"2996"},"x_scale":{"id":"3000"},"y_range":{"id":"2998"},"y_scale":{"id":"3002"}},"id":"2993","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"3016","type":"ZoomOutTool"},{"attributes":{},"id":"8555","type":"AllLabels"},{"attributes":{},"id":"2996","type":"DataRange1d"},{"attributes":{"tools":[{"id":"3012"},{"id":"3013"},{"id":"3014"},{"id":"3015"},{"id":"3016"}]},"id":"3017","type":"Toolbar"},{"attributes":{"h":{"value":1},"url":{"field":"url"},"w":{"value":1},"x":{"value":0},"y":{"value":1}},"id":"3024","type":"ImageURL"},{"attributes":{"coordinates":null,"group":null},"id":"2994","type":"Title"}],"root_ids":["3030"]},"title":"Bokeh Application","version":"2.4.1"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            const fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  const docs_json = document.getElementById('8660').textContent;
+                  const render_items = [{"docid":"a1ab8393-dd3c-402c-93db-4ec8016957a4","root_ids":["3030"],"roots":{"3030":"0d01c655-ee5d-4023-b7ce-5cc4e0adabb2"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    let attempts = 0;
+                    const timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

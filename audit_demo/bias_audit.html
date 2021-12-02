@@ -12,6 +12,7 @@
     <link rel="author" href="humans.txt">
 	<script src="js/class_cluster_options.js"></script>
 	<script src="js/feature_cluster_options.js"></script>
+	<script src="js/w3.js"></script> 
   </head>
   <body>
     <div class="doc__bg"></div>
@@ -40,22 +41,24 @@
 		    <option value="Value">Value</option>
        	  </select>
         <div>    
-            <img src="img/label_dist.jpg" alt="" width="70%"/>
+			<object data="demo_material/data_histogram_by_feature_value.html" height="600" width="650"></object>
         </div>	
+		<hr />
       </section>
       <section class="js-section">
         <h2 class="section__title">Feature Clusters</h2>
         <p>These plots cluster data points based on their extracted feature. </p>
-        <table id="customers">
-          <tr>
-            <th align="center">Colored by feature</th>
-            <th align="center">Colored by label</th>
-          </tr>
-          <tr>
-            <th><img src="img/cluster_all_1.jpg" alt="" width="70%"/></th>
-            <th><img src="img/cluster_all_2.jpg" alt="" width="70%"/></th>
-          </tr>			  
-        </table>
+        <div class="row">
+		  <div class="column">
+			  <h3>Colored by feature</h3>
+			  <object data="demo_material/entire_scatterplot_by_cluster.html" height="600" width="650"></object>
+		  </div>
+		  <div class="column">
+			  <h3>Colored by label</h3>
+			  <object data="demo_material/entire_scatterplot_by_label.html" height="600" width="650"></object>
+		  </div>
+		</div>
+
 	    <h3 class="section__title">Isolated Visualization Per Class&nbsp; &nbsp;&nbsp;</h3>
 	    <form name="feature_cluster_form">
 		  <label for="select">Select:</label>
@@ -63,10 +66,18 @@
 			<option value="class_0">0</option>
 		    <option value="class_1">1</option>
 		    <option value="class_2">2</option>
+			<option value="class_3">3</option>
+			<option value="class_4">4</option>
+			<option value="class_5">5</option>
+			<option value="class_6">6</option>
+			<option value="class_7">7</option>
+			<option value="class_8">8</option>
+			<option value="class_9">9</option>			
        	  </select>
 		</form>
 		  <div>    
-            <img name="feature_cluster_name" src="img/feature_cluster_0.jpg" alt="" width="70%"/>
+			  <object  name="feature_cluster_name" data="demo_material/scatterplot_original_projection_for_label_0.html" height="600" width="650"></object>
+
           </div>	
         <hr />
       </section>
@@ -76,13 +87,20 @@
 		<form name="class_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="class_cluster()" id="select_2">
-		    <option value="class_0">0</option>
+			<option value="class_0">0</option>
 		    <option value="class_1">1</option>
 		    <option value="class_2">2</option>
+			<option value="class_3">3</option>
+			<option value="class_4">4</option>
+			<option value="class_5">5</option>
+			<option value="class_6">6</option>
+			<option value="class_7">7</option>
+			<option value="class_8">8</option>
+			<option value="class_9">9</option>	
        	  </select>
 		</form>
 		  <div>    
-            <img name="class_cluster_name" src="img/class_cluster_0.jpg" alt="" width="70%"/>
+			<object name="class_cluster_name" data="demo_material/entire_scatterplot_by_cluster.html" height="600" width="650"></object>
           </div>
         <hr />
       </section>
@@ -93,5 +111,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="scribbler.js"></script>
+	<script>w3.includeHTML();</script>
+
   </body>
 </html>

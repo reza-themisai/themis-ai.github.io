@@ -12,7 +12,8 @@ function feature_cluster()
 if(document.images)
 	  {
 	  idx=document.feature_cluster_form.classes.options[document.feature_cluster_form.classes.selectedIndex].text.charAt(0)
-	  document.feature_cluster_name.src = "img/feature_cluster_"+idx+".jpg"
+	  document.feature_cluster_name.data = "demo_material/scatterplot_original_projection_for_label_"+idx+".html"
+	  console.log(document.feature_cluster_name.data)
 	  }
 }
 window.onerror = null;
