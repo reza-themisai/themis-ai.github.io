@@ -25,7 +25,7 @@
 
   <header role="banner" class="probootstrap-header">
     <div class="container">
-        <a href="index.html" class="probootstrap-logo">Black<span>.</span></a>
+        <a href="index.html" class="probootstrap-logo"><img src="img/icon_themis_logo.png" width="30px">&nbsp; Themis AI</a>
 
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
@@ -33,24 +33,21 @@
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
             <li><a href="index.html">Home</a></li>
+			<li><a href="index.html/#mission">Mission</a></li>
             <li class="active"><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
           <ul class="probootstrap-right-nav hidden-xs">
-            <li><a href="#"><i class="icon-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-facebook2"></i></a></li>
-            <li><a href="#"><i class="icon-instagram2"></i></a></li>
-          </ul>
+           <li><a href="mailto:info@themisai.io"><i class="icon-mail"></i></a></li>
+		  </ul>
           <div class="extra-text visible-xs">
             <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
             <h5>Address</h5>
             <p>198 West 21th Street, Suite 721 New York NY 10016</p>
             <h5>Connect</h5>
             <ul class="social-buttons">
-              <li><a href="#"><i class="icon-twitter"></i></a></li>
-              <li><a href="#"><i class="icon-facebook2"></i></a></li>
-              <li><a href="#"><i class="icon-instagram2"></i></a></li>
+              <li><a href="mailto:info@themisai.io"><i class="icon-mail"></i></a></li>
             </ul>
           </div>
         </nav>
@@ -62,9 +59,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
-              <div class="slides-text probootstrap-animate">
-                <h2>Bias Audit Demo&nbsp;</h2>
-                <p>&nbsp;</p>
+              <div class="slides-text prob ootstrap-animate">
+                <h2>End-to-end debiasing</h2>
+                <p></p>
               </div>
             </div>
           </div>
@@ -73,54 +70,181 @@
   </section>
   <!-- END: slider  -->
 
-
-  <section class="probootstrap-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 section-heading probootstrap-animate">
-          <h2>Class Distribuition</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class=" probootstrap-animate">
-          <div class="probootstrap-card">
-            <div class="probootstrap-card-media">
-              <img src="img/BiasAudit/label_dist.jpg" class="img-responsive img-border" alt="Free HTML5 Template by uicookies.com">
-            </div>
-            <div class="probootstrap-card-text">
-              <h2 class="probootstrap-card-heading mb0">Label </h2>
-              <p class="category">Design &amp; Model</p>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-              <p><a href="single-page.html">View details</a></p>
-            </div>
-          </div>
-        </div>
-       
-	</div>
-
-
-      </div>
-    </div>
-  </section>
-  <!-- END section -->
-
   <div class="container">
     <div class="probootstrap-cta probootstrap-animate border-bototm-none">
-      <h2 class="mb20">Do you have amazing project in mind? Let's get started.</h2>
-      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-      <p><a href="#" role="button" class="btn btn-primary">Get In Touch</a></p>
+      <h2 class="mb20 text-center">End-to-end debiasing</h2>
+      <p>Our product helps you during three major steps of  AI deployments. First, via Bias Audit we assist you to gain a thorough understanding of your data. Such as, Identifying  the latent features,  distribuition of data samples, and identifying areas of your data that should be improved. Second, comes our Debiased Training which integerats into your training piple and trains a <strong>fair</strong> model even if your data is biased or imballanced. And finally, the Model Certification certifies the fairness of certifies the fairness of your trained model on all the protected classes and features. Our technology is <strong>industry agnostic</strong>, <strong>unsupervised</strong>, and works on <strong>any data type</strong>.</p>
+      <p class="text-center"><a href="#" role="button" class="btn btn-primary text-center">Request Demo</a></p>
     </div>
   </div>
 
   <!-- END section cta -->
+
+ <section class="probootstrap-section">
+ <div class="probootstrap-section">
+    <div class="container">
+			<!-- Bias Audit -->
+			<div class="row">
+	    <h2 class="mb20 text-center probootstrap-animate">1. Bias Audit</h2>
+        <div class="col-md-6 probootstrap-animate" data-animate-effect="fadeInLeft">
+          <div class="panel-group probootstrap-panel" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Overview
+                </a>
+                </h3>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <p>Our technology extracts latent features, calculates their distribuition, and indetifies the under and over-represented groups. Our Bias Audit outputs an interactive visualization that helps users gain an indepth understanding of their dataset. Additionally, it suggests different strategies to improve your dataset before passing it into the training pipeline.</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h3 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Benefits
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <li>Identify noisy data samples.</li>
+				  <li>Extract and identify all the informative underlying features in your dataset.</li>
+				  <li>Perfect tool for engineers and analyst to understand useful metrics about their data and learn how to improve it.</li>
+				  <li>Designed both for ML experts and Bussiness experts.</li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 probootstrap-animate" data-animate-effect="fadeInRight">
+          <figure>
+            <div class="probootstrap-video">
+              <a href="https://vimeo.com/45830194" class="popup-vimeo probootstrap-video-play"><i class="icon-play3"></i></a>
+              <img src="img/slider_2.jpg" alt="Free HTML5 Bootstrap Template by uicookies.com" class="img-responsive img-border">
+            </div>
+            <figcaption>This is a caption. Far far away, behind the word mountains.</figcaption>
+          </figure>
+        </div>
+      </div>
+			<!-- END bias Audit -->
+
+	 <!-- Debiased Training -->
+	 <div class="row">
+	    <h2 class="mb20 text-center probootstrap-animate">2. Debiased Training</h2>
+				<div class="col-md-6 probootstrap-animate" data-animate-effect="fadeInRight">
+					<figure>
+						<div class="probootstrap-video">
+							<a href="https://vimeo.com/45830194" class="popup-vimeo probootstrap-video-play"><i class="icon-play3"></i></a>
+							<img src="img/slider_2.jpg" alt="Free HTML5 Bootstrap Template by uicookies.com" class="img-responsive img-border">
+						</div>
+						<figcaption>This is a caption. Far far away, behind the word mountains.</figcaption>
+					</figure>
+				</div>
+        <div class="col-md-6 probootstrap-animate" data-animate-effect="fadeInLeft">
+          <div class="panel-group probootstrap-panel" id="accordion_2" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne_2">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapseOne_2" aria-expanded="true" aria-controls="collapseOne_2">
+                  Overview
+                </a>
+                </h3>
+              </div>
+              <div id="collapseOne_2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_2">
+                <div class="panel-body">
+                  <p>It's impossible to gather a perfect dataset and that's where Debiased Training comes to the rescue. This section of our product is designed to train your model fairly even if your training data is heavily biased or imballanced. All you need to do is: install our product, import debiased training into your code and voila!</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo_2">
+                <h3 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapseTwo_2" aria-expanded="false" aria-controls="collapseTwo_2">
+                    Benefits
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseTwo_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_2">
+                <div class="panel-body">
+				  <p>Train your model fairly even when utilizing:</p>
+                  <li>Historical data that carries social biases.</li>
+				  <li>A dataset that doesn't include enough samples of all the different demographics.</li>
+				  <p>Achieve the highest accuracy even when:</p>
+				  <li>Your dataset is heavily imbalanced.</li>
+				  <li>You cannot improve your dataset on the under-represeented groups.</li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  <!-- End Debiased Training -->
+	  <!-- Model Certification -->
+	  <div class="row">
+	    <h2 class="mb20 text-center probootstrap-animate">3. Debiased Training</h2>
+        <div class="col-md-6 probootstrap-animate" data-animate-effect="fadeInLeft">
+          <div class="panel-group probootstrap-panel" id="accordion_3" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne_3">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion_3" href="#collapseOne_3" aria-expanded="true" aria-controls="collapseOne_3">
+                  Overview
+                </a>
+                </h3>
+              </div>
+              <div id="collapseOne_3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_3">
+                <div class="panel-body">
+                  <p>Once your model is trained the Model Certification, certifies the fairness of your model on all the protected classes and features in your dataset. This step is cruical before deployment to keep companies safe from lawsuits and unethical use of AI.</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo_3">
+                <h3 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_3" href="#collapseTwo_3" aria-expanded="false" aria-controls="collapseTwo_3">
+                    Benefits
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseTwo_3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_3">
+                <div class="panel-body">
+				  <li>Ensure fairness of your AI model not only on explicit labels but also on latent features.</li>
+                  <li>Avoid and win lawsuits by providing scientific proofs of your models fairness.</li>
+				  <li>Gain positive publicity and attract more customers by utulizing fair AI in your automated decision making.</li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+		<div class="col-md-6 probootstrap-animate" data-animate-effect="fadeInRight">
+			<figure>
+				<div class="probootstrap-video">
+					<a href="https://vimeo.com/45830194" class="popup-vimeo probootstrap-video-play"><i class="icon-play3"></i></a>
+					<img src="img/slider_2.jpg" alt="Free HTML5 Bootstrap Template by uicookies.com" class="img-responsive img-border">
+				</div>
+				<figcaption>This is a caption. Far far away, behind the word mountains.</figcaption>
+			</figure>
+		</div>
+      </div>
+	  <!-- End Debiased Training -->
+
+    </div>
+  </div>
+  </section>
+  <!-- END section -->
 
   <footer class="probootstrap-footer probootstrap-bg">
     <div class="container">
       <div class="row mb60">
         <div class="col-md-3">
           <div class="probootstrap-footer-widget">
-            <h4 class="heading">About Black.</h4>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            <h4 class="heading">Themis AI</h4>
+            <p>First company to provide an end-to-end debiasing product.</p>
             <p><a href="#">Read more...</a></p>
           </div>
         </div>
@@ -128,11 +252,10 @@
           <div class="probootstrap-footer-widget probootstrap-link-wrap">
             <h4 class="heading">Quick Links</h4>
             <ul class="stack-link">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="#">Products</a></li>
-              <li><a href="#">Testimonial</a></li>
+<!--              <li><a href="#">Testimonial</a></li>-->
             </ul>
           </div>
         </div>
@@ -140,18 +263,17 @@
           <div class="probootstrap-footer-widget">
             <h4 class="heading">More Links</h4>
             <ul class="stack-link">
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms</a></li>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">Support Help</a></li>
+              <li><a href="#">Request Demo</a></li>
+              <li><a href="#">Contact US</a></li>
+<!--              <li><a href="#">Terms</a></li>-->
+<!--              <li><a href="#">Career</a></li>-->
+<!--              <li><a href="#">Support Help</a></li>-->
             </ul>
           </div>
         </div>
         <div class="col-md-3">
           <div class="probootstrap-footer-widget probootstrap-link-wrap">
-            <h4 class="heading">Subscribe</h4>
-            <p>Far far away behind the word mountains far from.</p>
+            <h4 class="heading">Subscribe To our Newsletter</h4>
             <form action="#">
               <div class="form-field">
                 <input type="text" class="form-control" placeholder="Enter your email">
@@ -164,15 +286,13 @@
       <div class="row copyright">
         <div class="col-md-6">
           <div class="probootstrap-footer-widget">
-            <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Black</a>. Designed by <a href="https://uicookies.com/">uicookies.com</a> <br> Demo Photos from <a href="https://unsplash.com/">Unsplash</a></p>
+<!--            <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Black</a>. Designed by <a href="https://uicookies.com/">uicookies.com</a> <br> Demo Photos from <a href="https://unsplash.com/">Unsplash</a></p>-->
           </div>
         </div>
         <div class="col-md-6">
           <div class="probootstrap-footer-widget right">
             <ul class="probootstrap-social">
-              <li><a href="#"><i class="icon-twitter"></i></a></li>
-              <li><a href="#"><i class="icon-facebook"></i></a></li>
-              <li><a href="#"><i class="icon-instagram2"></i></a></li>
+			   <li><a href="mailto:info@themisai.io"><i class="icon-mail"></i></a></li>
             </ul>
           </div>
         </div>
