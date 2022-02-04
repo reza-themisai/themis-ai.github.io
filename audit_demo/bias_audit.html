@@ -66,7 +66,7 @@
 
 	    <h3 class="section__title">Isolated Visualization Per Class</h3>
 		<p>You can utilize these isolated plots to identify the challenging data samples from each class. The data samples are color-coded based on their difficulty for the model. Hover over the points to identify whether a data is noisy (i.e. should be removed) or under-sampled (i.e. need to gather more similar data).</p>
-	    <form name="feature_cluster_form">
+	    <!-- <form name="feature_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="feature_cluster()" id="select_1">
 			<option value="class_0">0</option>
@@ -80,17 +80,20 @@
 			<option value="class_8">8</option>
 			<option value="class_9">9</option>
        	  </select>
-		</form>
-		  <div>
+		</form> -->
+		  <!-- <div>
 			  <object  name="feature_cluster_name" data="demo_material/scatterplot_original_projection_for_label_0.html" height="700" width="700"></object>
 
-          </div>
+          </div> -->
+			<div>
+					<object name="feature_cluster_name" data="demo_material/bias_audit/original_projection_scatterplots_colored_by_reconstruction_loss_with_coloring_hist.html" height="700" width="700"></object>
+			</div>
         <hr />
       </section>
       <section class="js-section">
         <h2 class="section__title">Features Within Class</h2>
         <p>This plot depicts the features extracted within each class. This visualization helps you understand the distribution of your data samples under each class. Additionally, the color of each data sample represents the difficulty of that data point for your model. For instance, you can see how many different digits of 1 you have, how they are distributed, and which ones are more difficult for the model to classify. You can utilize this visualization to remove noisy data samples. Moreover, you can identify the under-represented areas to gather more data samples from.</p>
-		<form name="class_cluster_form">
+		<!-- <form name="class_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="class_cluster()" id="select_2">
 			<option value="class_0">0</option>
@@ -104,10 +107,13 @@
 			<option value="class_8">8</option>
 			<option value="class_9">9</option>
        	  </select>
-		</form>
-		  <div>
+		</form> -->
+		  <!-- <div>
 			<object name="class_cluster_name" data="demo_material/scatterplot_re_projection_for_label_0.html" height="650" width="650"></object>
-          </div>
+          </div> -->
+			<div>
+			<object name="class_cluster_name" data="demo_material/bias_audit/re_projection_scatterplots_colored_by_reconstruction_loss_with_coloring_hist.html" height="700" width="650"></object>
+      </div>
         <hr />
       </section>
     </article>
