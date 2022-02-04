@@ -14,7 +14,7 @@
 	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
 	</script>
   </head>
-	
+
   <body>
     <div class="doc__bg"></div>
     <nav class="header">
@@ -48,13 +48,13 @@
 	      <option value="accuracy">accuracy</option>
 		  <option value="f1">f1</option>
 		  <option value="recall">recall</option>
-		  <option value="precision">precision</option>  
-		  <option value="weighted_f1">weighted f1</option>  
-		  <option value="weighted_recall">weighted recall</option>  
-		  <option value="weighted_precision">weighted precision</option>  
+		  <option value="precision">precision</option>
+		  <option value="weighted_f1">weighted f1</option>
+		  <option value="weighted_recall">weighted recall</option>
+		  <option value="weighted_precision">weighted precision</option>
    	    </select>
 		</form>
-        <div>    
+        <div>
 			<object name="overall_metrics_name" data="demo_material/Comparison_of_model_accuracies_for_accuracy.html" height="650" width="650"></object>
         </div>
 		<hr />
@@ -65,37 +65,70 @@
 		<form name="label_metrics_form">
 		  <label for="select">Select:</label>
        	  <select name="metric" onChange="label_metrics()" id="select_label_metrics">
-			<option value="class_0">0</option>
+				<option value="class_0">0</option>
 		    <option value="class_1">1</option>
 		    <option value="class_2">2</option>
-			<option value="class_3">3</option>
-			<option value="class_4">4</option>
-			<option value="class_5">5</option>
-			<option value="class_6">6</option>
-			<option value="class_7">7</option>
-			<option value="class_8">8</option>
-			<option value="class_9">9</option>			
+				<option value="class_3">3</option>
+				<option value="class_4">4</option>
+				<option value="class_5">5</option>
+				<option value="class_6">6</option>
+				<option value="class_7">7</option>
+				<option value="class_8">8</option>
+				<option value="class_9">9</option>
        	  </select>
 		</form>
-		<div>    
-			  <object  name="label_metrics_name" data="demo_material/model_comparison_metrics_label_0.html" height="400" width="1000"></object>
-        </div>		
+		<div>
+			  <object  name="label_metrics_name" data="demo_material/debias_training/model_comparison_metrics_label_0.html" height="650" width="1000"></object>
+        </div>
         <hr />
       </section>
-		
+
       <section class="js-section">
-        <h3 class="section__title">Advanced Metrics</h3>
-        <p>ML Engineers and Data scientists may benefit from more advanced plots that include more information regarding the loss function values during training, validating, and testing.</p>
-		<form name="advanced_metrics_form">
-		  <label for="select">Select:</label>
-       	  <select name="metric" onChange="advanced_metrics()" id="select_2">
-		    <option value="train_loss">train loss</option>
-       	  </select>
-		</form>
-		  <div>    
-            <object name="advanced_metrics_name" data="demo_material/Training_and_Accuracy_Metrics_for_uniform_on_histories.html" height="700" width="1000"></object>
+      <h2 class="section__title">Advanced Metrics</h2>
+      <p>ML Engineers and Data scientists may benefit from more advanced plots that include more information regarding the loss function values during training, validating, and testing.</p>
+			<h3 class="subsection__title">Baseline Model Metrics</h3>
+			<form name="baseline_model_advanced_metrics_form">
+			  <label for="select">Select:</label>
+	       	  <select name="metric" onChange="advanced_metrics_baseline_model()" id="select_2">
+			    <option value="train_loss">train loss</option>
+					<option value="label_accuracy">label accuracy</option>
+					<option value="meta_accuracy_per_cluster">meta accuracy per cluser</option>
+					<option value="meta_accuracy">meta accuracy</option>
+	       	  </select>
+			</form>
+		  <div>
+            <object name="baseline_model_advanced_metrics_name" data="demo_material/debias_training/uniform_model_history_plots.html" height="700" width="1000"></object>
           </div>
         <hr />
+
+			<h3 class="subsection__title">Debiased Model Metrics</h3>
+			<form name="debiased_model_advanced_metrics_form">
+			  <label for="select">Select:</label>
+	       	  <select name="metric" onChange="advanced_metrics_debiased_model()" id="select_2">
+					    <option value="train_loss">train loss</option>
+							<option value="label_accuracy">label accuracy</option>
+							<option value="meta_accuracy_per_cluster">meta accuracy per cluser</option>
+							<option value="meta_accuracy">meta accuracy</option>
+	       	  </select>
+			</form>
+		  		<div>
+            <object name="debiased_model_advanced_metrics_name" data="demo_material/debias_training/debiased_model_history_plots.html" height="700" width="1000"></object>
+          </div>
+        <hr />
+				<h3 class="subsection__title">Training History</h3>
+				<form name="training_history_form">
+					<label for="select">Select:</label>
+							<select name="metric" onChange="training_history()" id="select_2">
+								<option value="train_weighted_loss">train weighted loss</option>
+								<option value="train_prediction_loss">train prediction loss</option>
+								<option value="test_weighted_loss">test weighted loss</option>
+								<option value="test_prediction_loss">test prediction loss</option>
+							</select>
+				</form>
+						<div>
+							<object name="training_history_name" data="demo_material/debias_training/training_history_comparison_plot_train__weighted_loss.html" height="700" width="1000"></object>
+						</div>
+					<hr />
       </section>
     </article>
     </div>
