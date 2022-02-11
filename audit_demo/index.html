@@ -1,83 +1,134 @@
 
-<!doctype html>
-<html>
-  <head>
-      <meta charset="utf-8">
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Scribbler - a codding landing page template for codrops</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
-      <link rel="stylesheet" href="scribbler-global.css">
-      <link rel="stylesheet" href="scribbler-landing.css">
-      <link rel="author" href="humans.txt">
-      <script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-7243260-2']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-  </head>
-  <body>
-    <nav>
-      <div class="logo"></div>
-      <ul class="menu">
-        <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="bias_audit.html" class="link link--dark"><i class="fa fa-book"></i> Bias Audit</a></li>
-        <li class="menu__item"><a href="debias_training_report.html" class="link link--dark"><i class="fa fa-bar-chart"></i> Debiased Training</a></li>
-      </ul>
-    </nav>
-    <div class="hero">
-      <h1 class="hero__title">Themis AI Audit Report&nbsp;</h1>
-    </div>
-    <div class="wrapper">
-      <div class="installation">
-        <h2 class="section__title">Summary</h2>
-		<p>We ran our end-to-end debiasing platform on an imbalanced MNIST dataset. This tutorial goes over the report output of our platform. 
-		</br> </br>
-		This imbalanced dataset consists of only ~60 samples of even digits and ~3000 samples of odd digits. The challenge here is to train a model, given this imbalanced dataset, such that it learns even digits as well as odd digits. The report is divided into two segments. The first segment is the output of our Bias Audit, and the second segment is the output of our Debiased Training. Throughout this audit report, you will gain a better understanding of the data distribution, can easily catch noisy data samples, and compare the performance of a baseline model with a debiased model. 
-		</p>
-		<h2 class="section__title">Bias Audit</h2>
-	    <p>
-		The very first step of any ML design and implementation is to understand the dataset you are working with. With our Bias Audit, you can dig deeper into your dataset, understand data distribution, identify different underlying features within the dataset and features within each class, in addition to providing the distribution of such underlying features. 
-		</br> </br>
-		This report consists of three sections, Class Distribution, Feature Clusters, and Features within Class.
-		</p>
-		<h3 class="section__title">Class Distribution</h3>
-		<p>
-			Class Distribution plots demonstrate how different classes within your dataset are distributed. This is the very first step of identifying under-represented classes within your dataset. 
-		</p>
-		<h3 class="section__title">Feature Clusters</h3>
-		<p>
-			Our state-of-the-art algorithm identifies underlying features within the dataset and clusters the data based on them. This tool can be utilized as a dataset debugger (to identify noisy data samples) and to identify underrepresented features. The same plot is presented in three different forms, colored by cluster, colored by label, and each class in isolation, to further assist you in studying the data. 
-		</p>
-		<h3 class="section__title">Features within Class</h3>
-		<p>
-			In this section, our algorithm has identified underlying features within each class. The plots demonstrate the relative distance of such features and their difficulty level for a prediction model. These plots can be utilized as another dataset debugging tool that enables a deeper understanding of data samples within each class. 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
 
-		</p>
-		<div class="callout">
-        <a href="bias_audit.html" class="button--primary">Read Bias Audit</a>
-      	</div>		
-		<h2 class="section__title">Debiased Training Report</h2>	
-       	<p>
-			Once the data is clean and ready for training, it’s time to use our debiased training algorithm to train your models fairly and optimally. In this report, you can find the performance of the debiased model compared to a baseline model (uniform model). This report consists of four sections, overall metrics, class metrics, advanced metrics for baseline (uniform) model,  advanced metrics for debiased model, and training history comparison between baseline (uniform) and debiased model. This report will assist you in evaluating the performance of your model with our debiased training in comparison to a baseline (uniform) model of your choice. 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		</p>
-		<div class="callout">
-        <a href="bias_audit.html" class="button--primary">Read the Report</a>
-      	</div>	
-      </div>
-  
-    </div>
-    <footer class="footer" href="../index.html">Themis AI</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="scribbler.js"></script>
-  </body>
+</head>
+
+<style>
+
+body {
+
+	background-image: url('grunge_patterns.jpg');
+	background-attachment: fixed;
+	color: #333;
+}
+
+.box {
+	border-radius: 3px;
+	background: rgba(101, 101, 101, 0.7); margin: auto; padding: 12px;
+}
+
+.lightbox {
+	zoom: 1.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 10, 10, 0.8);
+	text-align: center;
+	margin: auto;
+
+}
+
+div.horizontal {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+div.vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+::-moz-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+</style>
+
+<body>
+
+	<div id="loginbox" class="lightbox" >
+		<div class="horizontal">
+			<div class="vertical">
+				<div class="box">
+					<input style="margin: 16px; text-align: center;" id="password" type="password" placeholder="password" /> <br />
+					<button id="loginbutton" type="button">Enter</button>
+					<p id="wrongPassword" style="display: none">wrong password</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+
+	 <script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
+
+	<script type="text/javascript">
+	"use strict";
+
+
+	function loadPage(pwd) {
+
+		var hash= pwd;
+		hash= Sha1.hash(pwd);
+		var url= hash + "/index.html";
+
+		$.ajax({
+			url : url,
+			dataType : "html",
+			success : function(data) {
+
+				window.location= url;
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+
+
+				parent.location.hash= hash;
+
+				//$("#wrongPassword").show();
+				$("#password").attr("placeholder","wrong password");
+				$("#password").val("");
+			}
+		});
+	}
+
+
+	$("#loginbutton").on("click", function() {
+		loadPage($("#password").val());
+	});
+	$("#password").keypress(function(e) {
+		if (e.which == 13) {
+
+			loadPage($("#password").val());
+		}
+	});
+	$("#password").focus();
+
+	</script>
+
+</body>
 </html>
