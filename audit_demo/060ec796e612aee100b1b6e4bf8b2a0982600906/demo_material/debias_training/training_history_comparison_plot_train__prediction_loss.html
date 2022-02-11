@@ -4,44 +4,44 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
-    
+
       <meta charset="utf-8">
       <title>Bokeh Plot</title>
-      
-      
-        
-          
-        
-        
-          
+
+
+
+
+
+
+
         <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js" integrity="sha384-dM3QQsP+wXdHg42wTqW85BjZQdLNNIXqlPw/BgKoExPmTG7ZLML4EGqLMfqHT6ON" crossorigin="anonymous"></script>
         <script type="text/javascript">
             Bokeh.set_log_level("info");
         </script>
-        
-      
-      
-    
+
+
+
+
   </head>
-  
-  
+
+
   <body>
-    
-      
-        
-          
-          
-            
+
+
+
+
+
+
               <div class="bk-root" id="215ffbde-19bc-4368-829d-eb843d719f7b" data-root-id="14828"></div>
-            
-          
-        
-      
-      
+
+
+
+
+
         <script type="application/json" id="47022">
-          {"10399d4a-4d7c-454e-96ce-e9e31be59839":{"defs":[],"roots":{"references":[{"attributes":{},"id":"14866","type":"BasicTickFormatter"},{"attributes":{},"id":"14835","type":"LinearScale"},{"attributes":{},"id":"14844","type":"BasicTicker"},{"attributes":{"data":{"debiased_model_test_prediction_loss":[1.955336332321167,1.6610451936721802,1.503335952758789,1.4305146932601929,1.2755190134048462,1.2434890270233154,1.1182736158370972,1.0128848552703857,0.9357284307479858,0.9408706426620483,0.8720077276229858,0.8102843761444092,0.7338233590126038,0.7528876066207886,0.7085315585136414,0.6765710115432739,0.6340849995613098,0.6399281620979309,0.6360776424407959,0.5832057595252991],"debiased_model_train_prediction_loss":[1.6638708114624023,0.9165012240409851,0.7139156460762024,0.5885024666786194,0.5516089200973511,0.49786898493766785,0.48178496956825256,0.45112842321395874,0.4421897828578949,0.4112999141216278,0.4050506055355072,0.37467822432518005,0.3628137707710266,0.36006486415863037,0.35069143772125244,0.3393087387084961,0.3378163278102875,0.3096487522125244,0.3103336989879608,0.30261385440826416],"uniform_model_test_prediction_loss":[2.05001163482666,2.2890541553497314,2.174185276031494,2.0049550533294678,1.9420816898345947,1.786001443862915,1.6618070602416992,1.610673189163208,1.5243303775787354,1.456895112991333,1.3794548511505127,1.2497622966766357,1.2066047191619873,1.2007185220718384,1.1239124536514282,1.0679714679718018,1.0236845016479492,1.0033859014511108,0.9225475192070007,0.8995107412338257],"uniform_model_train_prediction_loss":[1.3427168130874634,0.6205722093582153,0.47835713624954224,0.40982937812805176,0.3727816939353943,0.34946098923683167,0.3213058412075043,0.3099783658981323,0.2973536550998688,0.28452804684638977,0.2808929681777954,0.2677602171897888,0.26002320647239685,0.2561488449573517,0.2388455867767334,0.23998594284057617,0.23499980568885803,0.22825220227241516,0.2275208681821823,0.21547621488571167],"x":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},"selected":{"id":"14870"},"selection_policy":{"id":"14871"}},"id":"14827","type":"ColumnDataSource"},{"attributes":{"text":"Training History Plot for train prediction_loss"},"id":"14829","type":"Title"},{"attributes":{"axis":{"id":"14843"},"dimension":1,"ticker":null},"id":"14846","type":"Grid"},{"attributes":{"label":{"value":"debiased model train prediction loss"},"renderers":[{"id":"14877"}]},"id":"14888","type":"LegendItem"},{"attributes":{},"id":"14831","type":"DataRange1d"},{"attributes":{},"id":"14847","type":"PanTool"},{"attributes":{},"id":"14850","type":"ZoomInTool"},{"attributes":{},"id":"14849","type":"ResetTool"},{"attributes":{"callback":null,"mode":"vline","names":["debiased model train prediction loss"],"tooltips":"&lt;div&gt;&lt;span style='font-size: 16px; color: #224499'&gt;uniform model train prediction loss: &lt;/span&gt;&lt;span style='font-size: 16px'&gt;@uniform_model_train_prediction_loss&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style='font-size: 16px; color: #224499'&gt;debiased model train prediction loss: &lt;/span&gt;&lt;span style='font-size: 16px'&gt;@debiased_model_train_prediction_loss&lt;/span&gt;&lt;/div&gt;"},"id":"14889","type":"HoverTool"},{"attributes":{},"id":"14871","type":"UnionRenderers"},{"attributes":{"active_multi":null,"tools":[{"id":"14847"},{"id":"14848"},{"id":"14849"},{"id":"14850"},{"id":"14851"},{"id":"14889"}]},"id":"14852","type":"Toolbar"},{"attributes":{},"id":"14865","type":"AllLabels"},{"attributes":{"axis_label":"epochs","formatter":{"id":"14866"},"major_label_policy":{"id":"14865"},"ticker":{"id":"14840"}},"id":"14839","type":"LinearAxis"},{"attributes":{"data_source":{"id":"14827"},"glyph":{"id":"14875"},"hover_glyph":null,"muted_glyph":null,"name":"debiased model train prediction loss","nonselection_glyph":{"id":"14876"},"view":{"id":"14878"}},"id":"14877","type":"GlyphRenderer"},{"attributes":{},"id":"14837","type":"LinearScale"},{"attributes":{"line_color":"#5e4fa2","line_width":2,"x":{"field":"x"},"y":{"field":"uniform_model_train_prediction_loss"}},"id":"14859","type":"Line"},{"attributes":{},"id":"14840","type":"BasicTicker"},{"attributes":{"items":[{"id":"14873"},{"id":"14888"}]},"id":"14872","type":"Legend"},{"attributes":{},"id":"14869","type":"BasicTickFormatter"},{"attributes":{"line_color":"#3288bd","line_width":2,"x":{"field":"x"},"y":{"field":"debiased_model_train_prediction_loss"}},"id":"14875","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"#5e4fa2","line_width":2,"x":{"field":"x"},"y":{"field":"uniform_model_train_prediction_loss"}},"id":"14860","type":"Line"},{"attributes":{"data_source":{"id":"14827"},"glyph":{"id":"14859"},"hover_glyph":null,"muted_glyph":null,"name":"uniform model train prediction loss","nonselection_glyph":{"id":"14860"},"view":{"id":"14862"}},"id":"14861","type":"GlyphRenderer"},{"attributes":{"below":[{"id":"14839"}],"center":[{"id":"14842"},{"id":"14846"},{"id":"14872"}],"left":[{"id":"14843"}],"renderers":[{"id":"14861"},{"id":"14877"}],"title":{"id":"14829"},"toolbar":{"id":"14852"},"x_range":{"id":"14831"},"x_scale":{"id":"14835"},"y_range":{"id":"14833"},"y_scale":{"id":"14837"}},"id":"14828","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"14851","type":"ZoomOutTool"},{"attributes":{"source":{"id":"14827"}},"id":"14878","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#3288bd","line_width":2,"x":{"field":"x"},"y":{"field":"debiased_model_train_prediction_loss"}},"id":"14876","type":"Line"},{"attributes":{},"id":"14870","type":"Selection"},{"attributes":{"axis":{"id":"14839"},"ticker":null},"id":"14842","type":"Grid"},{"attributes":{"label":{"value":"uniform model train prediction loss"},"renderers":[{"id":"14861"}]},"id":"14873","type":"LegendItem"},{"attributes":{},"id":"14868","type":"AllLabels"},{"attributes":{"axis_label":"loss","formatter":{"id":"14869"},"major_label_policy":{"id":"14868"},"ticker":{"id":"14844"}},"id":"14843","type":"LinearAxis"},{"attributes":{},"id":"14848","type":"WheelZoomTool"},{"attributes":{},"id":"14833","type":"DataRange1d"},{"attributes":{"source":{"id":"14827"}},"id":"14862","type":"CDSView"}],"root_ids":["14828"]},"title":"Bokeh Application","version":"2.3.3"}}
+          {"10399d4a-4d7c-454e-96ce-e9e31be59839":{"defs":[],"roots":{"references":[{"attributes":{},"id":"14866","type":"BasicTickFormatter"},{"attributes":{},"id":"14835","type":"LinearScale"},{"attributes":{},"id":"14844","type":"BasicTicker"},{"attributes":{"data":{"debiased_model_test_prediction_loss":[1.955336332321167,1.6610451936721802,1.503335952758789,1.4305146932601929,1.2755190134048462,1.2434890270233154,1.1182736158370972,1.0128848552703857,0.9357284307479858,0.9408706426620483,0.8720077276229858,0.8102843761444092,0.7338233590126038,0.7528876066207886,0.7085315585136414,0.6765710115432739,0.6340849995613098,0.6399281620979309,0.6360776424407959,0.5832057595252991],"debiased_model_train_prediction_loss":[1.6638708114624023,0.9165012240409851,0.7139156460762024,0.5885024666786194,0.5516089200973511,0.49786898493766785,0.48178496956825256,0.45112842321395874,0.4421897828578949,0.4112999141216278,0.4050506055355072,0.37467822432518005,0.3628137707710266,0.36006486415863037,0.35069143772125244,0.3393087387084961,0.3378163278102875,0.3096487522125244,0.3103336989879608,0.30261385440826416],"uniform_model_test_prediction_loss":[2.05001163482666,2.2890541553497314,2.174185276031494,2.0049550533294678,1.9420816898345947,1.786001443862915,1.6618070602416992,1.610673189163208,1.5243303775787354,1.456895112991333,1.3794548511505127,1.2497622966766357,1.2066047191619873,1.2007185220718384,1.1239124536514282,1.0679714679718018,1.0236845016479492,1.0033859014511108,0.9225475192070007,0.8995107412338257],"uniform_model_train_prediction_loss":[1.3427168130874634,0.6205722093582153,0.47835713624954224,0.40982937812805176,0.3727816939353943,0.34946098923683167,0.3213058412075043,0.3099783658981323,0.2973536550998688,0.28452804684638977,0.2808929681777954,0.2677602171897888,0.26002320647239685,0.2561488449573517,0.2388455867767334,0.23998594284057617,0.23499980568885803,0.22825220227241516,0.2275208681821823,0.21547621488571167],"x":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},"selected":{"id":"14870"},"selection_policy":{"id":"14871"}},"id":"14827","type":"ColumnDataSource"},{"attributes":{"text":"Training History Plot for train prediction_loss"},"id":"14829","type":"Title"},{"attributes":{"axis":{"id":"14843"},"dimension":1,"ticker":null},"id":"14846","type":"Grid"},{"attributes":{"label":{"value":"debiased model train prediction loss"},"renderers":[{"id":"14877"}]},"id":"14888","type":"LegendItem"},{"attributes":{},"id":"14831","type":"DataRange1d"},{"attributes":{},"id":"14847","type":"PanTool"},{"attributes":{},"id":"14850","type":"ZoomInTool"},{"attributes":{},"id":"14849","type":"ResetTool"},{"attributes":{"callback":null,"mode":"vline","names":["debiased model train prediction loss"],"tooltips":"&lt;div&gt;&lt;span style='font-size: 16px; color: #224499'&gt;baseline model train prediction loss: &lt;/span&gt;&lt;span style='font-size: 16px'&gt;@uniform_model_train_prediction_loss&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style='font-size: 16px; color: #224499'&gt;debiased model train prediction loss: &lt;/span&gt;&lt;span style='font-size: 16px'&gt;@debiased_model_train_prediction_loss&lt;/span&gt;&lt;/div&gt;"},"id":"14889","type":"HoverTool"},{"attributes":{},"id":"14871","type":"UnionRenderers"},{"attributes":{"active_multi":null,"tools":[{"id":"14847"},{"id":"14848"},{"id":"14849"},{"id":"14850"},{"id":"14851"},{"id":"14889"}]},"id":"14852","type":"Toolbar"},{"attributes":{},"id":"14865","type":"AllLabels"},{"attributes":{"axis_label":"epochs","formatter":{"id":"14866"},"major_label_policy":{"id":"14865"},"ticker":{"id":"14840"}},"id":"14839","type":"LinearAxis"},{"attributes":{"data_source":{"id":"14827"},"glyph":{"id":"14875"},"hover_glyph":null,"muted_glyph":null,"name":"debiased model train prediction loss","nonselection_glyph":{"id":"14876"},"view":{"id":"14878"}},"id":"14877","type":"GlyphRenderer"},{"attributes":{},"id":"14837","type":"LinearScale"},{"attributes":{"line_color":"#5e4fa2","line_width":2,"x":{"field":"x"},"y":{"field":"uniform_model_train_prediction_loss"}},"id":"14859","type":"Line"},{"attributes":{},"id":"14840","type":"BasicTicker"},{"attributes":{"items":[{"id":"14873"},{"id":"14888"}]},"id":"14872","type":"Legend"},{"attributes":{},"id":"14869","type":"BasicTickFormatter"},{"attributes":{"line_color":"#3288bd","line_width":2,"x":{"field":"x"},"y":{"field":"debiased_model_train_prediction_loss"}},"id":"14875","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"#5e4fa2","line_width":2,"x":{"field":"x"},"y":{"field":"uniform_model_train_prediction_loss"}},"id":"14860","type":"Line"},{"attributes":{"data_source":{"id":"14827"},"glyph":{"id":"14859"},"hover_glyph":null,"muted_glyph":null,"name":"baseline model train prediction loss","nonselection_glyph":{"id":"14860"},"view":{"id":"14862"}},"id":"14861","type":"GlyphRenderer"},{"attributes":{"below":[{"id":"14839"}],"center":[{"id":"14842"},{"id":"14846"},{"id":"14872"}],"left":[{"id":"14843"}],"renderers":[{"id":"14861"},{"id":"14877"}],"title":{"id":"14829"},"toolbar":{"id":"14852"},"x_range":{"id":"14831"},"x_scale":{"id":"14835"},"y_range":{"id":"14833"},"y_scale":{"id":"14837"}},"id":"14828","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"14851","type":"ZoomOutTool"},{"attributes":{"source":{"id":"14827"}},"id":"14878","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#3288bd","line_width":2,"x":{"field":"x"},"y":{"field":"debiased_model_train_prediction_loss"}},"id":"14876","type":"Line"},{"attributes":{},"id":"14870","type":"Selection"},{"attributes":{"axis":{"id":"14839"},"ticker":null},"id":"14842","type":"Grid"},{"attributes":{"label":{"value":"baseline model train prediction loss"},"renderers":[{"id":"14861"}]},"id":"14873","type":"LegendItem"},{"attributes":{},"id":"14868","type":"AllLabels"},{"attributes":{"axis_label":"loss","formatter":{"id":"14869"},"major_label_policy":{"id":"14868"},"ticker":{"id":"14844"}},"id":"14843","type":"LinearAxis"},{"attributes":{},"id":"14848","type":"WheelZoomTool"},{"attributes":{},"id":"14833","type":"DataRange1d"},{"attributes":{"source":{"id":"14827"}},"id":"14862","type":"CDSView"}],"root_ids":["14828"]},"title":"Bokeh Application","version":"2.3.3"}}
         </script>
         <script type="text/javascript">
           (function() {
@@ -49,11 +49,11 @@
               Bokeh.safely(function() {
                 (function(root) {
                   function embed_document(root) {
-                    
+
                   var docs_json = document.getElementById('47022').textContent;
                   var render_items = [{"docid":"10399d4a-4d7c-454e-96ce-e9e31be59839","root_ids":["14828"],"roots":{"14828":"215ffbde-19bc-4368-829d-eb843d719f7b"}}];
                   root.Bokeh.embed.embed_items(docs_json, render_items);
-                
+
                   }
                   if (root.Bokeh !== undefined) {
                     embed_document(root);
@@ -79,7 +79,7 @@
             else document.addEventListener("DOMContentLoaded", fn);
           })();
         </script>
-    
+
   </body>
-  
+
 </html>

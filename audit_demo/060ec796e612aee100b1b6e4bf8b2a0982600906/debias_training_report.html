@@ -35,7 +35,7 @@
     <article class="doc__content">
       <section class="js-section">
 		<h2 class="section__title">Overall Metrics</h2>
-        <p>The following plots depict the overall performance metrics of the baseline (uniform) model  and debiased  module. You can utilize these plots to calculate the financial benefit of debiased training.</p>
+        <p>The following plots depict the overall performance metrics of the baseline model  and debiased  module. You can utilize these plots to calculate the financial benefit of debiased training.</p>
         <p>Each metric is calculated as follows:&nbsp;&nbsp;</p>
         <p><span class="math display"> \[ Accuracy\ =\ \frac{correct\ prediction}{all\ predictions}\]</span></p>
 		<p><span class="math display"> \[ recall\ =\ \frac{True\ Positive}{True\ Positive\ +\ False Negative}\]</span></p>
@@ -64,7 +64,7 @@
       </section>
       <section class="js-section">
         <h2 class="section__title">Label and Feature Metrics</h2>
-        <p>The following plots compare the performance of each label before (uniform model) and after debiasing (debiased model) was enforced during training. As you can observe the debiased training was able to improve the performance on the underrepresented classes with no (or negligible) compromise on overrepresented classes.</p>
+        <p>The following plots compare the performance of each label before (baseline model) and after debiasing (debiased model) was enforced during training. As you can observe the debiased training was able to improve the performance on the underrepresented classes with no (or negligible) compromise on overrepresented classes.</p>
 		<form name="label_metrics_form">
 		  <label for="select">Select:</label>
        	  <select name="metric" onChange="label_metrics()" id="select_label_metrics">
@@ -122,7 +122,7 @@
           </div>
         <hr />
 				<h3 class="subsection__title">Train History</h3>
-	  			<p>In the following plots, we observe debiased model loss is higher than the baseline (uniform) model during training and lower during testing. This is because our debised training algorithm always finds the challenging data samples and focuses the training time on the areas the model hasn't learned yet. This results in a higher train loss and a better performing model (i.e. lower test loss).</p>
+	  			<p>In the following plots, we observe debiased model loss is higher than the baseline model during training and lower during testing. This is because our debised training algorithm always finds the challenging data samples and focuses the training time on the areas the model hasn't learned yet. This results in a higher train loss and a better performing model (i.e. lower test loss).</p>
 				<form name="training_history_form">
 					<label for="select">Select:</label>
 							<select name="metric" onChange="training_history()" id="select_2">
