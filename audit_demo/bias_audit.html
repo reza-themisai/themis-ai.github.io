@@ -51,8 +51,8 @@
       </section>
       <section class="js-section">
         <h2 class="section__title">Feature Clusters</h2>
-        <p>These plots cluster data points based on their features. For instance, one common feature in these clusters is the count of curves and their shapes, we can observe that the model clusters 1, 7, and 9s that look similar to each other together and 3, 8, and some 5s in another cluster. Additionally, utilize the visualizations below to identify which data points are challenging for your AI  model. Additionally, this visualization helps you gain a better understanding and identify the latent features of your data. These features have the most impact on your model's prediction.</p>
-		<p>You can compare the <em><strong>colored by feature</strong></em> and <em><strong>colored by label </strong> </em> plots to gain a better understanding of the difficult areas of your data.</p>
+        <p>These plots cluster data points based on their features. For instance, one common feature in these clusters is the curves and their shapes, we can observe that the model clusters 1, 7, and 9s together and 3, 8, and some 5s in another cluster. You can utilize the visualizations below to identify which data points are challenging for your AI model. Additionally, you can use this visualization to gain a deeper understanding of your data distribution and identify the underlying features within your data.</p>
+		<p>You can compare the <em><strong>colored by feature</strong></em> and <em><strong>colored by label </strong> </em> plots to understand the clusters and underlying features better.&nbsp;</p>
         <div class="row">
 		  <div class="column">
 			  <h3>Colored by feature</h3>
@@ -65,8 +65,9 @@
 		</div>
 
 	    <h3 class="section__title">Isolated Visualization Per Class</h3>
-		<p>You can utilize these isolated plots to identify the challenging data samples from each class. The data samples are color-coded based on their difficulty for the model. Hover over the points to identify whether a data is noisy (i.e. should be removed) or under-sampled (i.e. need to gather more similar data).</p>
-	    <!-- <form name="feature_cluster_form">
+		<p>Theses plot are the repitition of the two plots above wit&nbsp; each class in isolation from others. You can utilize this visualization to understand the distribution of your data within each class. Additionally, the color of each data sample represents the difficulty of that data point for your model. For instance, you can see how many different types of digits 1 are there, how they are distributed, and which ones are more difficult for the model to classify. Moreover, this tool enables you to discover and remove noisy data samples faster. And, you can identify the under-represented areas that you should gather more data samples from.&nbsp;</p>
+		<p>Hover over the points to identify whether a data is noisy (i.e. should be removed) or under-sampled (i.e. need to gather more similar data).</p>
+		<!-- <form name="feature_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="feature_cluster()" id="select_1">
 			<option value="class_0">0</option>
@@ -92,8 +93,9 @@
       </section>
       <section class="js-section">
         <h2 class="section__title">Features Within Class</h2>
-        <p>This plot depicts the features extracted within each class. This visualization helps you understand the distribution of your data samples under each class. Additionally, the color of each data sample represents the difficulty of that data point for your model. For instance, you can see how many different digits of 1 you have, how they are distributed, and which ones are more difficult for the model to classify. You can utilize this visualization to remove noisy data samples. Moreover, you can identify the under-represented areas to gather more data samples from.</p>
-		<!-- <form name="class_cluster_form">
+        <p>These plots are the projection of underlying features within each class. The plots demonstrate the relative distance of such features and their difficulty level for a prediction model. These plots can be utilized as another dataset debugging tool that enables a deeper understanding of data samples within each class.</p>
+        <p>Hover over the points to identify whether a data is noisy (i.e. should be removed) or under-sampled (i.e. need to gather more similar data).&nbsp;</p>
+        <!-- <form name="class_cluster_form">
 		  <label for="select">Select:</label>
        	  <select name="classes" onChange="class_cluster()" id="select_2">
 			<option value="class_0">0</option>
@@ -119,7 +121,7 @@
     </article>
     </div>
 
-    <footer class="footer"> <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light"></a>.</footer>
+    <footer class="footer" href="../index.html"> Themis AI</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="scribbler.js"></script>

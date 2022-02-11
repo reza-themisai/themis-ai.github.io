@@ -27,7 +27,7 @@
   <div class="wrapper">
     <aside class="doc__nav">
         <ul>
-          <li class="js-btn selected">Overall Metrics&nbsp;</li>
+          <li class="js-btn selected">Overall Metrics</li>
           <li class="js-btn">Label &amp; Feature Metrics</li>
           <li class="js-btn">Advanced Metrics</li>
         </ul>
@@ -35,7 +35,7 @@
     <article class="doc__content">
       <section class="js-section">
 		<h2 class="section__title">Overall Metrics</h2>
-        <p>The following plots depict the overall performance metrics of the model in the default state (no debiasing) and after utilizing the debiased training module. You can utilize these plots to calculate the financial benefit of debiased training.</p>
+        <p>The following plots depict the overall performance metrics of the baseline (uniform) model  and debiased  module. You can utilize these plots to calculate the financial benefit of debiased training.</p>
         <p>Each metric is calculated as follows:&nbsp;&nbsp;</p>
         <p><span class="math display"> \[ Accuracy\ =\ \frac{correct\ prediction}{all\ predictions}\]</span></p>
 		<p><span class="math display"> \[ recall\ =\ \frac{True\ Positive}{True\ Positive\ +\ False Negative}\]</span></p>
@@ -64,7 +64,7 @@
       </section>
       <section class="js-section">
         <h2 class="section__title">Label and Feature Metrics</h2>
-        <p>The following plots compare the performance of each label before and after debiasing was enforced during training. As you can observe debias training was able to improve the performance of the under-represented classes.</p>
+        <p>The following plots compare the performance of each label before (uniform model) and after debiasing (debiased model) was enforced during training. As you can observe the debiased training was able to improve the performance on the underrepresented classes with no (or negligible) compromise on overrepresented classes.</p>
 		<form name="label_metrics_form">
 		  <label for="select">Select:</label>
        	  <select name="metric" onChange="label_metrics()" id="select_label_metrics">
@@ -81,14 +81,14 @@
        	  </select>
 		</form>
 		<div>
-			  <object  name="label_metrics_name" data="demo_material/debias_training/model_comparison_metrics_label_0.html" height="650" width="1000"></object>
+			  <object  name="label_metrics_name" data="demo_material/debias_training/model_comparison_metrics_label_0.html" height="700" width="1000"></object>
         </div>
         <hr />
       </section>
 
       <section class="js-section">
       <h2 class="section__title">Advanced Metrics</h2>
-      <p>ML Engineers and Data scientists may benefit from more advanced plots that include more information regarding the loss function values during training, validating, and testing.</p>
+      <p>ML Engineers and Data scientists may benefit from more advanced plots that include more information regarding the loss function values during training, validating, and testing. In the following plots you can dig deeper into the train and test loss and the meta accuracies on each class and each cluster.</p>
 			<h3 class="subsection__title">Baseline Model Metrics</h3>
 			<form name="baseline_model_advanced_metrics_form">
 			  <label for="select">Select:</label>
@@ -105,6 +105,9 @@
         <hr />
 
 			<h3 class="subsection__title">Debiased Model Metrics</h3>
+		  	<p>
+				The following plots include advanced metrics for the debiased model such as train loss, test loss, meta accuracy of each class, and meta accuracy of each cluster. If you compare the accuracy of the clusters you can see that the debiased training was able to improve the accuracy on all the clusters even the underrepresented ones (clusters 3 and 4).
+			</p>
 			<form name="debiased_model_advanced_metrics_form">
 			  <label for="select">Select:</label>
 	       	  <select name="metric" onChange="advanced_metrics_debiased_model()" id="select_2">
@@ -118,7 +121,8 @@
             <object name="debiased_model_advanced_metrics_name" data="demo_material/debias_training/debiased_model_history_plots.html" height="700" width="1000"></object>
           </div>
         <hr />
-				<h3 class="subsection__title">Training History</h3>
+				<h3 class="subsection__title">Train History</h3>
+	  			<p>In the following plots, we observe debiased model loss is higher than the baseline (uniform) model during training and lower during testing. This is because our debised training algorithm always finds the challenging data samples and focuses the training time on the areas the model hasn't learned yet. This results in a higher train loss and a better performing model (i.e. lower test loss).</p>
 				<form name="training_history_form">
 					<label for="select">Select:</label>
 							<select name="metric" onChange="training_history()" id="select_2">
@@ -136,7 +140,7 @@
     </article>
     </div>
 
-    <footer class="footer"> <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light"></a>.</footer>
+    <footer class="footer" href="index.html"> Themis AI</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="scribbler.js"></script>
