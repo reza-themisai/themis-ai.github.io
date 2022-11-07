@@ -846,6 +846,19 @@ form.subscribe button:hover {
   border-radius: 100%;
 }
 
+.team .investor {
+  width: calc(33% - 60px);
+  margin: 0 0 60px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+.team .investor img {
+  display: block;
+  width: 190px;
+  margin: 0 auto 32px;
+}
+
 .team .name {
   font-weight: 700;
   font-size: 22px;
@@ -867,4 +880,30 @@ form.subscribe button:hover {
   .team .team-member {
     width: 100%;
   }
+}
+.probootstrap-social {
+	padding:0;
+	margin:0
+}
+.probootstrap-social li{
+	display:inline;
+	padding:0;
+	margin:0;
+	list-style:none
+}
+.probootstrap-social li a{
+	padding:10px;
+	font-size:22px
+}
+.probootstrap-social li a:hover{
+	text-decoration:none!important
+}
+.probootstrap-social li:first-child>a{
+	padding-left:0
+}
+.icon-github-with-circle:before {
+  content: "\ea6a";
+}
+.icon-github:before {
+  content: "\ea6b";
 }
