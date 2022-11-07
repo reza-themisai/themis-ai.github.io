@@ -33,6 +33,12 @@ p.sub-header {
   margin: 20px auto 45px;
 }
 
+p.sub-text {
+  color: #898ca9;
+  margin: 20px auto 45px;
+  text-align: center;
+}
+
 .container {
   max-width: 1054px;
   padding: 0 15px;
@@ -501,6 +507,7 @@ p.sub-header {
   font-size: 32px;
   color: #fff;
   margin: 5px 0 25px;
+  text-align: center;
 }
 
 .case-studies .case p {
@@ -509,6 +516,7 @@ p.sub-header {
   text-align: left;
   text-transform: capitalize;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .case-studies .case a {
