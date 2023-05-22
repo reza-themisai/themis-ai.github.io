@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Preliminary Steps Towards Risk-aware Image Generation">
+  <meta name="keywords" content="Themis AI, Capsa, MIT CSAIL, Stable Diffusion, Generative Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Towards Risk-Aware Image Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!--script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/vslide.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/output.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+  }
+
+  td {
+    padding: 0 5px; /* Add padding to the left and right of the content in each cell */
+    vertical-align: top;
+  }
+
+  .left-video {
+    width: 100%;
+    /*height: 200px;*/
+  }
+
+  .left-image {
+    width: 100%;
+    /*height: 200px;*/
+  }
+
+  .right-image {
+    /*width: 100%;*/
+    /*height: 400px;*/
+    width: 1050px;
+    object-fit: cover; /* Use object-fit to resize the image while maintaining its aspect ratio */
+    object-position: center; /* Use object-position to center the image vertically */
+    align-self: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Information
+        </a>
+        <div class="navbar-dropdown">
+        
+          <a class="navbar-item" href="https://www.youtube.com/watch?v=kIiO4VSrivU&list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI&index=6">
+            MIT 6.S191: Trustworthy Deep Learning
+          </a>
+          <a class="navbar-item" href="https://github.com/themis-ai/capsa">
+            Capsa
+          </a>
+          <a class="navbar-item" href="https://themisai.io/capsa/tutorials/">
+            Tutorials
+          </a>
+          <a class="navbar-item" href="https://themisai.io/capsa/risk_metrics/index.html">
+            Risk Metrics
+          </a>
+          <a class="navbar-item" href="https://themisai.io/capsa/getting_started/basic_usage.html">
+            Basic Usage
+          </a>
+        <a class="navbar-item" href="https://docs.google.com/forms/d/e/1FAIpQLSc7gN5Vv9gv5SrJ8x6owPCr4MGjYv2SXhSE3nsOXueIsLGgVA/viewform">
+            Demo Requests
+          </a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Preliminary Steps Towards Risk-Aware Image Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/themis-ai/capsa">Contributor</a>,</span>
+            <span class="author-block">
+              <!--a href="https://mit.edu">Go</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://mit.edu">Here</a><sup>2</sup>,
+            </span-->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><!--sup>1</sup-->Themis AI</span>
+            <!--span class="author-block"><sup>2</sup>MIT CSAIL</span-->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!--span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span-->
+              <!-- Video Link. -->
+              <!--span class="link-block">
+                <a href="https://www.youtube.com"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span-->
+              <!-- Code Link. -->
+              <!--span class="link-block">
+                <a href="https://github.com/themis-ai/capsa"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span-->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://csail.mit.edu"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!--video id="teaser" autoplay muted loop playsinline height="100%"-->
+      <img src="hand_frame_44.png" class="center">
+      <img src="wwords.png" class="center">
+
+      <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+        <source src="video.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Capsa</span> wraps any model and augments its output with risk-aware metrics.    
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!--div class="slider">
+  <div class="slider-container">
+    <div class="slider-item">
+      <div class="video-container">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+      </div>
+    </div>
+    <div class="slider-item">
+      <div class="video-container">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+      </div>
+    </div>
+    <div class="slider-item">
+      <div class="video-container">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+      </div>
+    <div class="slider-item">
+      <div class="video-container">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+      </div>
+    </div>
+  </div>
+</div-->
+
+
+<!--section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+                <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div-->
+      </div>
+    </div>
+  </div>
+</section-->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            We share some preliminary progress wrapping existing generative models with <span class="dnerf">Capsa</span> to obtain epistemic uncertainty estimates during the generation process.  
+          </p>
+          <p> In this update, we consider a <a href="https://github.com/divamgupta/stable-diffusion-tensorflow">Keras implementation</a> of <a href="https://github.com/CompVis/stable-diffusion">Stable Diffusion</a>, a latent text-to-image diffusion model. The image generator contains three main models which we wrap individually, i.e., (i) <a href="https://openai.com/research/clip">CLIP</a>, a text encoder that takes in prompts as input (ii) the <a href="https://jalammar.github.io/illustrated-stable-diffusion/">diffusion model</a>, used to generate latents over multiple steps (iii) an <a href="https://github.com/divamgupta/stable-diffusion-tensorflow/blob/master/stable_diffusion_tf/autoencoder_kl.py#L59">autoencoder decoder</a>, which converts latents into images.  
+          </p>
+          <p><span class="dnerf">Capsa</span> is able to wrap models of multiple formats and to augment their output with <a href="https://themisai.io/capsa/risk_metrics/index.html">risk metrics</a> that are computed automatically using a model-agnostic algorithm. These estimates are provided via <a href="https://themisai.io/capsa/api_documentation/RiskTensor.html">RiskTensors</a>, an extended tensor which provides aleatoric, epistemic, and bias information along with standard output. This new information allows us to monitor the uncertainty encountered by the three models as they iterate to produce the final image.   
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    
+    
+        <!--div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Animation</h2>
+
+        <h3 class="title is-4">Interpolating states</h3>
+        <div class="content has-text-justified"-->
+    
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Diffusion. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Diffusion</h2>
+        <div class="content has-text-justified">
+          <p>During the diffusion stage, the diffusion model takes in token embeddings for the prompt, i.e., text description of what should be in the image, and processes that information in a latent space iteratively over 50 steps. The model typically outputs a 4,64,64 latent at each step (shown in grey in the second column below). However, because we wrapped the model with <span class="dnerf">Capsa</span> we are able to automatically obtain epistemic risk values for each cell as well.</p>
+          
+          <p>For each of the 50 steps we show: The output image obtained by decoding the latent at that step (first column), the latent produced by the diffusion model at that step (second column), a false-colored image of scaled epistemic risk values for each cell in the latent (third column), and the absolute (no scaling) epistemic risk values for each cell (fourth column). Note that the values shown in the third column are scaled using local minimum and maximum values. <a href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">Matplotlib's Jet colormap</a> is used to generate the images in the third and fourth columns.</p>
+          <p>By looking at these values as the model iterates, we are able to see <i>where:</i> the parts of the image that produced uncertainty for the diffusion model and <i>when:</i> the step at which uncertainty was encountered.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--/ Diffusion. -->
+</section>
+    
+    <section class="hero teaser">
+  <div class="container is-max-desktop">
+
+ 
+        <div class="hero-body">
+      <!--video id="teaser" autoplay muted loop playsinline height="100%"-->
+      <img src="hand2_frame_46.png" class="center">
+
+      <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+        <source src="hand2_video.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+  <!--/div-->
+  
+          <div class="hero-body">
+      <!--video id="teaser" autoplay muted loop playsinline height="100%"-->
+      <img src="_beaver_frame_38.png" class="center">
+
+      <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+        <source src="_beaver_video.mp4"
+                type="video/mp4">
+      </video>
+      </div>
+      
+                <div class="hero-body">
+      <!--video id="teaser" autoplay muted loop playsinline height="100%"-->
+      <img src="llama_frame_38.png" class="center">
+
+      <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+        <source src="llama_video.mp4"
+                type="video/mp4">
+      </video>
+      </div>
+      
+          <div class="hero-body">
+      <!--video id="teaser" autoplay muted loop playsinline height="100%"-->
+      <img src="_traffic_frame_48.png" class="center">
+
+      <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+        <source src="_traffic_video.mp4"
+                type="video/mp4">
+      </video>
+      
+      <!--h2 class="subtitle has-text-centered">
+        <span class="dnerf">Text goes here.
+      </h2-->
+    </div>
+      
+<!--table>
+  <tr>
+    <td>
+      <video class="left-video" autoplay controls muted loop playsinline>
+        <source src="llama_video.mp4" type="video/mp4">
+      </video>
+    </td>
+    <td rowspan="2">
+      <img src="output.png" class="right-image">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="llama_frame_44.png" class="left-image">
+    </td>
+  </tr>
+</table-->
+      
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Decoding. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Decoding Latents</h2>
+        <div class="content has-text-justified">
+          <p>An <a href="https://github.com/divamgupta/stable-diffusion-tensorflow/blob/master/stable_diffusion_tf/autoencoder_kl.py#L59">autoencoder decoder</a> with several <a href="https://en.wikipedia.org/wiki/Residual_neural_network">ResNet</a>, <a href="https://keras.io/api/layers/reshaping_layers/up_sampling2d/">UpSampling2D</a> and <a href="https://keras.io/api/layers/convolution_layers/convolution2d/">Conv2D</a> layers takes in latents as input to produce the final 512x512 image. We wrap this decoder using <span class="dnerf">Capsa</span> in order to automatically calculate epistemic risk values for all areas in the resulting image. We show the decoded images (left) along with the epistemic uncertainty values at each pixel (right). Several examples are below. </p>
+          
+          <br>
+          
+
+    <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="_out82.png" class="center">
+        <!--center>prompts maybe should go here</center-->    
+    </div>
+        <div class="hero-body">
+      <img src="_out30.png" class="center">
+    </div>
+    
+        <div class="hero-body">
+      <img src="_out25.png" class="center">
+    </div>
+    
+            <div class="hero-body">
+      <img src="_out79.png" class="center">
+    </div>
+    
+                <div class="hero-body">
+      <img src="_out63.png" class="center">
+    </div>
+    
+                    <div class="hero-body">
+      <img src="_out43.png" class="center">
+    </div>
+</section>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--/ Decoding. -->
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Prompts. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Processing Prompts</h2>
+        <div class="content has-text-justified">
+          <p>The text descriptions provided by the user, i.e., prompts, are processed by <a href="https://openai.com/research/clip">CLIP</a>. This text encoder produces embedding vectors in a 768-dimensional space for each token in the prompt. We wrap this model using <span class="dnerf">Capsa</span> and are able to automatically estimate epistemic uncertainty for each token in the prompt along with the overall uncertainty from the entire text description. Note that these estimates of uncertainty are produced before the image generation process begins. Therefore, they could be used to fine-tune and test text in prompts without having to go through the time consuming and computationally expensive process of exhaustively generating images for each one. In other words, the wording in a prompt could be iterated upon until a description is found that results in low uncertainty for the text encoder. It is likely that prompts that produce low epistemic uncertainty estimates reduce ambiguity for the diffusion model as it uses this embedding to guide the image generation process.</p>
+          <p>Some examples are below.</p>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--/ Prompts. -->
+</section>
+        </div>  
+        
+          <div style="text-align: center;">
+        <img src="context_boxes_13.png">
+    </div>
+          <div style="text-align: center;">
+        <img src="context_boxes_11.png" >
+    </div>
+          <div style="text-align: center;">
+        <img src="context_boxes_12.png" >
+    </div>
+      
+           <div style="text-align: center;">
+        <img src="context_boxes_2.png" >
+    </div>
+
+           <!--div style="text-align: center;">
+        <img src="context_boxes_3.png >
+    </div-->
+           <div style="text-align: center;">
+        <img src="context_boxes_4.png" >
+    </div>
+           <div style="text-align: center;">
+        <img src="context_boxes_5.png" >
+    </div>
+    
+           <div style="text-align: center;">
+        <img src="context_boxes_6.png" >
+    </div>
+          
+            <div style="text-align: center;">
+        <img src="context_boxes_7.png" >
+    </div>
+           <div style="text-align: center;">
+        <img src="context_boxes_8.png" >
+    </div>
+    
+           <div style="text-align: center;">
+        <img src="context_boxes_9.png" >
+    </div>         
+          
+            <div style="text-align: center;">
+        <img src="context_boxes_10.png" >
+    </div>   
+            <div style="text-align: center;">
+        <img src="context_boxes_14.png" >
+    </div>   
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Prompts. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Final notes (or Future Work; some other section name)</h2>
+        <div class="content has-text-justified">
+          <p>To-do: 
+          (We could train with the wrapped models, automatically find gaps in training set, automatically bail on bad generations, all examples above are very preliminary, etc. Maybe add anecdotal observations)</p>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--/ Prompts. -->
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
